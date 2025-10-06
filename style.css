@@ -1,0 +1,316 @@
+/*
+Theme Name: Knowledge Base Pro
+Theme URI: https://freeazio.com
+Author: Harsh Dubey
+Author URI: https://freeazio.com
+Description: A customizable knowledge base theme with category-based organization, search functionality, and admin visibility controls.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: knowledge-base
+Tags: blog, documentation, knowledge-base, custom-colors, custom-menu
+*/
+
+:root {
+    --kb-primary-color: #2563eb;
+    --kb-secondary-color: #10b981;
+    --kb-text-color: #1f2937;
+    --kb-bg-color: #ffffff;
+    --kb-card-bg: #f9fafb;
+    --kb-border-color: #e5e7eb;
+    --kb-gradient-start: #2563eb;
+    --kb-gradient-end: #7c3aed;
+    --kb-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--kb-font-family);
+    color: var(--kb-text-color);
+    background-color: var(--kb-bg-color);
+    line-height: 1.6;
+}
+
+.kb-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Breadcrumb */
+.kb-header {
+    background: linear-gradient(135deg, var(--kb-gradient-start), var(--kb-gradient-end));
+    padding: 40px 0;
+    color: white;
+}
+
+.kb-breadcrumb {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.kb-breadcrumb a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.kb-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Search Bar */
+.kb-search-wrapper {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.kb-search-form {
+    position: relative;
+}
+
+.kb-search-input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.kb-search-submit {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--kb-primary-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Category Tabs */
+.kb-tabs {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--kb-border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.kb-tabs-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.kb-tab {
+    padding: 10px 20px;
+    background: var(--kb-card-bg);
+    border: 1px solid var(--kb-border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.kb-tab:hover,
+.kb-tab.active {
+    background: var(--kb-primary-color);
+    color: white;
+    border-color: var(--kb-primary-color);
+}
+
+/* Cards Grid */
+.kb-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.kb-card {
+    background: var(--kb-card-bg);
+    border: 1px solid var(--kb-border-color);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.kb-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--kb-primary-color);
+}
+
+.kb-card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--kb-primary-color);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.kb-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--kb-text-color);
+}
+
+.kb-card-description {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.kb-card-count {
+    font-size: 13px;
+    color: var(--kb-primary-color);
+    font-weight: 500;
+}
+
+/* Single Post */
+.kb-single-post {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.kb-post-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.kb-post-meta {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--kb-border-color);
+}
+
+.kb-post-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.kb-post-content h2 {
+    font-size: 28px;
+    margin: 30px 0 15px;
+}
+
+.kb-post-content h3 {
+    font-size: 22px;
+    margin: 25px 0 12px;
+}
+
+.kb-post-content p {
+    margin-bottom: 16px;
+}
+
+.kb-post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.kb-post-content code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.kb-post-content pre {
+    background: #1f2937;
+    color: #f3f4f6;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+/* Admin Panel Styles */
+.kb-admin-panel {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kb-admin-section {
+    margin-bottom: 30px;
+}
+
+.kb-admin-section h3 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--kb-border-color);
+}
+
+.kb-form-group {
+    margin-bottom: 20px;
+}
+
+.kb-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.kb-form-group input[type="text"],
+.kb-form-group input[type="color"],
+.kb-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--kb-border-color);
+    border-radius: 6px;
+}
+
+.kb-visibility-toggle {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: var(--kb-card-bg);
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.kb-visibility-toggle input {
+    margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .kb-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .kb-tabs-list {
+        flex-wrap: nowrap;
+    }
+    
+    .kb-post-title {
+        font-size: 28px;
+    }
+}
