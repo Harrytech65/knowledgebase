@@ -1,12 +1,7 @@
-<?php
-/**
- * The main template file - Knowledge Base Home Page
- */
-get_header(); ?>
+<?php get_header(); ?>
 
 <div class="kb-header">
     <div class="kb-container">
-        <!-- Breadcrumb -->
         <div class="kb-breadcrumb">
             <a href="<?php echo home_url(); ?>">Home</a>
             <span>/</span>
@@ -16,7 +11,6 @@ get_header(); ?>
         <h1 style="font-size: 42px; margin-bottom: 10px;">Knowledge Base</h1>
         <p style="font-size: 18px; opacity: 0.9;">Find answers, guides, and documentation</p>
         
-        <!-- Search Bar -->
         <div class="kb-search-wrapper">
             <form class="kb-search-form" id="kb-search-form">
                 <input type="text" 
@@ -26,12 +20,11 @@ get_header(); ?>
                        autocomplete="off">
                 <button type="submit" class="kb-search-submit">Search</button>
             </form>
-            <div id="kb-search-results" style="display: none; background: white; margin-top: 10px; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+            <div id="kb-search-results" style="display: none; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
         </div>
     </div>
 </div>
 
-<!-- Category Tabs -->
 <div class="kb-tabs">
     <div class="kb-container">
         <div class="kb-tabs-list">
@@ -39,7 +32,7 @@ get_header(); ?>
             <?php
             $categories = kb_get_visible_categories();
             foreach ($categories as $category):
-                if ($category->parent == 0): // Only parent categories
+                if ($category->parent == 0):
             ?>
                 <div class="kb-tab" data-category="<?php echo esc_attr($category->term_id); ?>">
                     <?php echo esc_html($category->name); ?>
@@ -52,29 +45,24 @@ get_header(); ?>
     </div>
 </div>
 
-<!-- Content Area -->
 <div class="kb-container">
     <div class="kb-cards-grid" id="kb-cards-grid">
         <?php
-        // Get all parent categories
         $parent_categories = array_filter($categories, function($cat) {
             return $cat->parent == 0;
         });
         
         foreach ($parent_categories as $category):
-            // Check for subcategories
             $subcategories = get_categories(array(
                 'parent' => $category->term_id,
                 'hide_empty' => false
             ));
             
-            // Filter visible subcategories
             $visible_subcategories = array_filter($subcategories, function($subcat) {
                 return kb_is_visible($subcat->term_id, 'category');
             });
             
             if (!empty($visible_subcategories)):
-                // Show subcategories as cards
                 foreach ($visible_subcategories as $subcategory):
                     $post_count = $subcategory->count;
         ?>
@@ -87,7 +75,6 @@ get_header(); ?>
         <?php
                 endforeach;
             else:
-                // Show posts in this category
                 $posts = get_posts(array(
                     'category' => $category->term_id,
                     'posts_per_page' => -1,
@@ -110,7 +97,6 @@ get_header(); ?>
             endif;
         endforeach;
         
-        // If no categories, show all posts
         if (empty($parent_categories)):
             $all_posts = get_posts(array(
                 'posts_per_page' => -1,
@@ -131,3 +117,8 @@ get_header(); ?>
         <?php
             endforeach;
         endif;
+        ?>
+    </div>
+</div>
+
+<?php get_footer(); ?>

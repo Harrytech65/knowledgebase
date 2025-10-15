@@ -1,15 +1,10 @@
 <?php
-/**
- * The template for displaying category archives
- */
 get_header();
-
 $category = get_queried_object();
 ?>
 
 <div class="kb-header">
     <div class="kb-container">
-        <!-- Breadcrumb -->
         <div class="kb-breadcrumb">
             <a href="<?php echo home_url(); ?>">Home</a>
             <span>/</span>
@@ -33,13 +28,11 @@ $category = get_queried_object();
 
 <div class="kb-container">
     <?php
-    // Check for subcategories
     $subcategories = get_categories(array(
         'parent' => $category->term_id,
         'hide_empty' => false
     ));
     
-    // Filter visible subcategories
     $visible_subcategories = array_filter($subcategories, function($subcat) {
         return kb_is_visible($subcat->term_id, 'category');
     });
@@ -72,8 +65,6 @@ $category = get_queried_object();
                 
                 while (have_posts()): 
                     the_post();
-                    
-                    // Skip hidden posts
                     if (in_array(get_the_ID(), $hidden_posts)) continue;
                 ?>
                     <div class="kb-card" onclick="location.href='<?php the_permalink(); ?>'">
@@ -90,7 +81,6 @@ $category = get_queried_object();
             </div>
             
             <?php
-            // Pagination
             the_posts_pagination(array(
                 'mid_size' => 2,
                 'prev_text' => '← Previous',
