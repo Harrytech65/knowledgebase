@@ -7,7 +7,7 @@
         <div class="kb-breadcrumb">
             <a href="<?php echo home_url(); ?>">Home</a>
             <span>/</span>
-            <a href="<?php echo home_url(); ?>">Knowledge Base</a>
+            <a href="<?php echo home_url(); ?>">knowzard</a>
             <?php
             $categories = get_the_category();
             if (!empty($categories)):
@@ -60,10 +60,9 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
                     <?php
                     $related_args = array(
-                        'category__in' => wp_get_post_categories(get_the_ID()),
-                        'post__not_in' => array(get_the_ID()),
-                        'posts_per_page' => 3,
-                        'orderby' => 'rand'
+                        'post__not_in' => array(get_the_ID()),  // Exclude the current post
+                        'posts_per_page' => 2,                  // Limit to 3 posts
+                        'orderby' => 'rand',                    // Random order
                     );
                     $related_query = new WP_Query($related_args);
                     
@@ -92,6 +91,7 @@
                     <?php endif; ?>
                 </div>
             </div>
+
            
             <div style="margin-top: 40px; padding: 20px; background: var(--kb-card-bg); border-radius: 10px; width: 100%;">
                 <p style="margin-bottom: 15px; font-size: 16px; text-align: center;">Was this article helpful?</p>

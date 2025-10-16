@@ -1,14 +1,18 @@
+<?php 
+$settings = kb_get_customization_settings();  // Yeh upar add kar
+?>
 <?php get_header(); ?>
+
 
 <div class="kb-header">
     <div class="kb-container">
         <div class="kb-breadcrumb">
             <a href="<?php echo home_url(); ?>">Home</a>
             <span>/</span>
-            <span>Knowledge Base</span>
+            <span>knowzard</span>
         </div>
         
-        <h1 style="font-size: 42px; margin-bottom: 10px;">Knowledge Base</h1>
+        <h1 style="font-size: 42px; margin-bottom: 10px;">knowzard</h1>
         <p style="font-size: 18px; opacity: 0.9;">Find answers, guides, and documentation</p>
         
         <div class="kb-search-wrapper">

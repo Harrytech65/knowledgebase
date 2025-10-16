@@ -43,7 +43,7 @@
         
         <div>
             <a href="<?php echo home_url(); ?>" style="padding: 8px 20px; background: var(--kb-primary-color); color: white; border-radius: 6px; text-decoration: none; font-weight: 500;">
-                Knowledge Base
+                knowzard
             </a>
         </div>
     </div>

@@ -44,7 +44,7 @@ function kb_theme_license_notice() {
         ?>
         <div class="notice notice-error is-dismissible">
             <p>
-                <strong>⚠️ Knowledge Base Theme:</strong> 
+                <strong>⚠️ knowzard Theme:</strong> 
                 Please activate your license to use this theme. 
                 <a href="<?php echo admin_url('options-general.php?page=license-validator5929'); ?>" style="font-weight: bold;">
                     Click here to activate →
@@ -71,7 +71,7 @@ function kb_theme_page_notice() {
         </style>
         <div class="kb-theme-warning">
             <h3>🔒 Theme License Required</h3>
-            <p>The Knowledge Base theme is currently inactive because no valid license has been found.</p>
+            <p>The knowzard theme is currently inactive because no valid license has been found.</p>
             <p>
                 <a href="<?php echo admin_url('options-general.php?page=license-validator5929'); ?>" class="button button-primary">
                     Activate License Now

@@ -17,7 +17,7 @@
                         <a href="<?php echo home_url(); ?>" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
                     </li>
                     <li style="margin-bottom: 10px;">
-                        <a href="<?php echo home_url(); ?>" style="color: rgba(255,255,255,0.7); text-decoration: none;">Knowledge Base</a>
+                        <a href="<?php echo home_url(); ?>" style="color: rgba(255,255,255,0.7); text-decoration: none;">knowzard</a>
                     </li>
                     <?php
                     $categories = kb_get_visible_categories();
@@ -72,7 +72,7 @@
         </div>
         
         <div style="padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.5); font-size: 14px;">
-            <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved. | Powered by Knowledge Base Theme</p>
+            <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved. | Powered by knowzard Theme</p>
         </div>
     </div>
 </footer>
